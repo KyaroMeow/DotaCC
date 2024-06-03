@@ -42,7 +42,7 @@ namespace DotaCC
         }
         private void iftouchedclose(object sender, EventArgs e)
         {
-            System.Media.SoundPlayer plays = new System.Media.SoundPlayer(@"Ui_menu_close.wav");
+            System.Media.SoundPlayer plays = new System.Media.SoundPlayer(@"resx\\sounds\\Ui_menu_close.wav");
             plays.Play();
             pictureBox5.Image = Image.FromFile("Red_X.png");
         }

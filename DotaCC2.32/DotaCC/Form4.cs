@@ -23,7 +23,7 @@ namespace DotaCC
                 pictureBox10.Image = Image.FromFile("walk right2.gif");
                 isthisopen = false;
                 button1.Text = "Вернись \nпожалуйста";
-                System.Media.SoundPlayer play = new System.Media.SoundPlayer(@"pudmove2.wav"); //Проигрывание звука при нажатии
+                System.Media.SoundPlayer play = new System.Media.SoundPlayer(@"resx\\sounds\\pudmove2.wav"); //Проигрывание звука при нажатии
                 play.Play();
                 for (int x = 138; x <= 485; x += 5)
                 {
@@ -37,7 +37,7 @@ namespace DotaCC
                 pictureBox10.Image = Image.FromFile("walk left2.gif");
                 isthisopen = false;
                 button1.Text = "Попросить \nподвинуться*";
-                System.Media.SoundPlayer play = new System.Media.SoundPlayer(@"pudmove1.wav"); //Проигрывание звука при нажатии
+                System.Media.SoundPlayer play = new System.Media.SoundPlayer(@"resx\\sounds\\pudmove1.wav"); //Проигрывание звука при нажатии
                 play.Play();
                 for (int x = 485; x >= 138; x -= 5)
                 {
@@ -112,7 +112,7 @@ namespace DotaCC
             {
                 aegis.Text = "Аегис утрачен";
                 aegis.ForeColor = Color.Red;
-                System.Media.SoundPlayer psay = new System.Media.SoundPlayer(@"pudalert1.wav"); //Проигрывание звука при нажатии
+                System.Media.SoundPlayer psay = new System.Media.SoundPlayer(@"resx\\souds\\pudalert1.wav"); //Проигрывание звука при нажатии
                 psay.Play();
             }
             if (m == 8 && s == 0) //Прошло 8 минут 0 секунд = рошан может возродится
