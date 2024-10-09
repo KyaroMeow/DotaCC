@@ -14,6 +14,13 @@ namespace DotaCC
     {
         
         SearchHero SearchTo = new SearchHero();
+        public bool isSecondFormOpen = false;
+        Timing form2 = new Timing();
+        System.Media.SoundPlayer play = new System.Media.SoundPlayer($"resx\\sounds\\Ui_menu_click.wav");
+        System.Media.SoundPlayer plays = new System.Media.SoundPlayer($"resx\\sounds\\Ui_menu_close.wav");
+        Form4 Clock = new Form4();
+        public bool isFourFormOpen = false;
+        Point lastpoint;
         int heroId { get; set; }
         public Form1()
         {
@@ -144,28 +151,13 @@ namespace DotaCC
                     "void spirit",
                     "snapfire",
                     "mars",
+                    "ringmaster",
                     "dawnbreaker",
                     "marci",
                     "primal beast",
                     "muerta"
                 };
 
-
-        //дизайн
-        Point lastpoint;
-        private void panel1MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                this.Left += e.X - lastpoint.X;
-                this.Top += e.Y - lastpoint.Y;
-            }
-        }
-
-        private void panel1MouseDown(object sender, MouseEventArgs e)
-        {
-            lastpoint = new Point(e.X, e.Y);
-        }
 
         //формат объектов в листе
         public class HeroMatchup
@@ -178,12 +170,23 @@ namespace DotaCC
                 return wins / games_played * 100;
             }
         }
-
+        //дизайн
+        private void panel1MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastpoint.X;
+                this.Top += e.Y - lastpoint.Y;
+            }
+        }
+        private void panel1MouseDown(object sender, MouseEventArgs e)
+        {
+            lastpoint = new Point(e.X, e.Y);
+        }
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             Close();
         }
-        System.Media.SoundPlayer plays = new System.Media.SoundPlayer($"resx\\sounds\\Ui_menu_close.wav");
         private void iftouchedmusic(object sender, EventArgs e)
         {
             plays.Play();
@@ -209,9 +212,7 @@ namespace DotaCC
             WindowState = FormWindowState.Minimized;
         }
 
-        public bool isSecondFormOpen = false;
-        Timing form2 = new Timing();
-        System.Media.SoundPlayer play = new System.Media.SoundPlayer($"resx\\sounds\\Ui_menu_click.wav");
+        
         private void pictureBox7_Click(object sender, EventArgs e)
         {
             play.Play();
@@ -228,7 +229,44 @@ namespace DotaCC
             }
             
         }
+        private void pictureBox5_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox5.Image = Image.FromFile("X.png");
+        }
 
+        private void pictureBox6_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox6.Image = Image.FromFile("minimized.png");
+        }
+        private void label4_Click(object sender, EventArgs e)
+        {
+            System.Media.SoundPlayer playw = new System.Media.SoundPlayer($"resx\\sounds\\secret.wav"); //Проигрывание звука при нажатии
+            playw.Play();
+            Form3 form3 = new Form3();
+            form3.ShowDialog();
+        }
+
+        private void pictureBox7_MouseLeave(object sender, EventArgs e)
+        {
+                pictureBox7.Image = Image.FromFile("light_off.png");
+        }
+        
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+            play.Play();
+            if (isFourFormOpen)
+            {
+                Clock.Close();
+                isFourFormOpen = false;
+            }
+            else
+            {
+                Clock = new Form4();
+                Clock.Show();
+                isFourFormOpen = true;
+            }
+        }
+        //основная кнопка поиска
         private async void pictureBox8_Click_1(object sender, EventArgs e)
         {
             pictureBox10.Image = null; //Очистка для презентабельности
@@ -296,51 +334,7 @@ namespace DotaCC
                 {
                     pictureBox3.Image = Image.FromFile("resx\\Hero_icon\\139.png");
                 }
-
-            }
-        }
-
-        private void pictureBox5_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox5.Image = Image.FromFile("X.png");
-        }
-
-        private void pictureBox6_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox6.Image = Image.FromFile("minimized.png");
-        }
-
-        Form3 form3 = new Form3();
-        private void label4_Click(object sender, EventArgs e)
-        {
-            System.Media.SoundPlayer playw = new System.Media.SoundPlayer($"resx\\sounds\\secret.wav"); //Проигрывание звука при нажатии
-            playw.Play();
-            form3 = new Form3();
-            form3.ShowDialog();
-        }
-
-        private void pictureBox7_MouseLeave(object sender, EventArgs e)
-        {
-                pictureBox7.Image = Image.FromFile("light_off.png");
-        }
-        Form4 Clock = new Form4();
-        public bool isThirdFormOpen = false;
-        private void pictureBox14_Click(object sender, EventArgs e)
-        {
-            play.Play();
-            if (isThirdFormOpen)
-            {
-                Clock.Close();
-                isThirdFormOpen = false;
-            }
-            else
-            {
-                Clock = new Form4();
-                Clock.Show();
-                isThirdFormOpen = true;
             }
         }
     }
-
 }
-

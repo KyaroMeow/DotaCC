@@ -106,7 +106,7 @@ namespace SearchInfo
             idToName.Add(76, "outworld destroyer");
             idToName.Add(77, "lycan");
             idToName.Add(78, "brewmaster");
-            idToName.Add(79, "shadow demon"); //dark
+            idToName.Add(79, "shadow demon");
             idToName.Add(80, "lone druid");
             idToName.Add(81, "chaos knight");
             idToName.Add(82, "meepo");
@@ -149,6 +149,7 @@ namespace SearchInfo
             idToName.Add(126, "void spirit");
             idToName.Add(128, "snapfire");
             idToName.Add(129, "mars");
+            idToName.Add(131, "ringmaster");
             idToName.Add(135, "dawnbreaker");
             idToName.Add(136, "marci");
             idToName.Add(137, "primal beast");
@@ -286,6 +287,7 @@ namespace SearchInfo
             NameToId.Add(126, "Void Spirit");
             NameToId.Add(128, "Snapfire");
             NameToId.Add(129, "Mars");
+            NameToId.Add(131, "ringmaster");
             NameToId.Add(135, "Dawnbreaker");
             NameToId.Add(136, "Marci");
             NameToId.Add(137, "Primal Beast");

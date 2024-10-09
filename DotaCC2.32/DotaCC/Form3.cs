@@ -46,7 +46,6 @@ namespace DotaCC
             plays.Play();
             pictureBox5.Image = Image.FromFile("Red_X.png");
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             pictureBox2.Visible = false;
